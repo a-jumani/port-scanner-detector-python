@@ -70,9 +70,9 @@ def parse_pkt(pkt):
     src_ip = ipaddress.IPv4Address(ip.src)
     dst_ip = ipaddress.IPv4Address(ip.dst)
 
-    # check for outgoing packet
-    #if str(src_ip) == MY_IP:
-    #    return
+    # ignore outgoing packet
+    if str(src_ip) == MY_IP:
+       return
 
     # extract port
     dst_port = ip.data.dport
